@@ -1,4 +1,5 @@
 import os
+import main
 products = []
 
 def create():
@@ -8,7 +9,7 @@ def create():
     opcao = 1
     while opcao != 2:
         print('------------------------')
-        print(''' Informe a sua ação:
+        print(''' Agora você gostaria de:
         [1] Cadastrar mais um produto
         [2] Voltar ao menu inicial / sair do programa  ''')
         opcao = int(input('Digite o numero da sua opcao:  '))
@@ -26,7 +27,7 @@ def create_new():
     
     product = {}
 
-    count = 0
+    count = 1
 
     for item in products:
         count += 1
@@ -56,10 +57,15 @@ def create_new():
 
 def stop_create():
     print("Finalizando..")
-    show_all_products()
+    main
 
 def show_all_products():
-    print(products)
+    global products
+
+    if len(products) == 0:
+        print("Você ainda não tem nenhum produto cadastrado")
+    else:
+        print(products)
 
 
 create()

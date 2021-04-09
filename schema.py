@@ -1,8 +1,12 @@
 import sqlite3
+import create_product
+import main
 
 conn = sqlite3.connect('olist_store.db')
 
 cursor = conn.cursor()
+
+
 
 cursor.execute("""
 CREATE TABLE IF NOT EXISTS category(
@@ -26,10 +30,13 @@ print('Tabela criada com sucesso.')
 
 
 def save_dados():
-    cursor.execute("INSERT INTO category VALUES (1,'auto','carro azul')")
+    cursor.execute('INSERT INTO category (name, category, description, valor) VALUES (?,?,?,?)', name, category, description, valor)                  
     conn.commit()
 
 
 save_dados()
+
+
+
 
 conn.close()

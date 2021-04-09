@@ -1,8 +1,8 @@
 import create_product
 import delete_product
 
-def main():
 
+def main():
     print('--------------------------------------------')
     print(''' ------ MENU INICIAL -----
     Ola. Selecione a ação que deseja executar: 
@@ -19,7 +19,6 @@ def main():
         print("funcao n pronta")
     elif choice == 3:
         create_product.show_all_products()
-    
-  
+
 
 main()

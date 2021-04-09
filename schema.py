@@ -12,7 +12,6 @@ CREATE TABLE IF NOT EXISTS category(
         ); 
 """)
 
-
 cursor.execute("""
 CREATE TABLE IF NOT EXISTS  product(
     id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
@@ -23,8 +22,14 @@ CREATE TABLE IF NOT EXISTS  product(
     );
 """)
 
-
-
-
 print('Tabela criada com sucesso.')
+
+
+def save_dados():
+    cursor.execute("INSERT INTO category VALUES (1,'auto','carro azul')")
+    conn.commit()
+
+
+save_dados()
+
 conn.close()

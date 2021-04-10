@@ -6,7 +6,7 @@ cursor = conn.cursor()
 
 cursor.execute("""
 CREATE TABLE IF NOT EXISTS category(
-    id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    id INTEGER  PRIMARY KEY AUTOINCREMENT,
     name VARCHAR NOT NULL,
     description TEXT NOT NULL
         ); 
@@ -14,22 +14,13 @@ CREATE TABLE IF NOT EXISTS category(
 
 cursor.execute("""
 CREATE TABLE IF NOT EXISTS  product(
-    id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    id INTEGER  PRIMARY KEY AUTOINCREMENT,
     name VARCHAR NOT NULL,
     description TEXT NOT NULL,
     value FLOAT NOT NULL,
-    FOREIGN KEY (name) REFERENCES category (name)
+    name_id INTEGER,
+    FOREIGN KEY (name_id) REFERENCES category(id)
     );
 """)
 
-print('Tabela criada com sucesso.')
-
-
-def save_dados():
-    cursor.execute("INSERT INTO category VALUES (1,'auto','carro azul')")
-    conn.commit()
-
-
-save_dados()
-
-conn.close()
+# print('Tabela criada com sucesso.')

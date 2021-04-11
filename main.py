@@ -5,10 +5,10 @@ def create_new(cursor, conn):
     print(' Coloque os dados solicitados para fazer o cadastro: ')
     print('-----------------------------------------')
 
-    name = ({"name": input('Produto: ')})
-    description = ({"description": input('Descricao: ')})
-    value = ({"value": input('Valor:')})
-    category = ({"Categoria": input('Categoria: ')})
+    name = input('Produto: ')
+    description = input('Descricao: ')
+    value = input('Valor:')
+    category = input('Categoria: ')
 
     cursor.execute(f'INSERT INTO product (name, description, value, name_id)'
                    f'VALUES ("{name}", "{description}","{value}","{category}")')
@@ -18,6 +18,7 @@ def create_new(cursor, conn):
 
 
 def update_obj(cursor, conn):
+
     cursor = conn.cursor()
     id_update = input('id: ')
     name = input('Produto: ')

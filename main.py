@@ -19,16 +19,18 @@ def create_new(cursor, conn):
 
 def update_obj(cursor, conn):
     cursor = conn.cursor()
-    id_name = input('id')
-    name = ({"name": input('Produto: ')})
-    description = ({"description": input('Descricao: ')})
-    value = ({"value": input('Valor:')})
+    id_update = input('id: ')
+    name = input('Produto: ')
+    description = input('Descricao: ')
+    value = input('Valor:')
 
     cursor.execute("""
       UPDATE product
-      SET  = ?
-      WHERE id = ?
-      """, (id_name, name, description, value))
+      SET    name = ?,
+             description = ?,
+             value = ? 
+      WHERE  id = ?
+      """, (name, description, value, id_update))
 
     conn.commit()
 
@@ -83,6 +85,6 @@ while True:
     elif choice == '4':
         delete(cursor, conn)
     elif choice == '5':
-        update_obj(cursor,conn)
+        update_obj(cursor, conn)
     else:
         print("Opção Inválida!")
